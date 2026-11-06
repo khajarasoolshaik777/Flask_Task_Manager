@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flask Task Manager</title>
+</head>
+<body>
+
+    <h1>My Task Manager</h1>
+
+    <form action="/add" method="POST">
+        <input type="text" name="title"
+               placeholder="Enter your task" required>
+        <button type="submit">Add Task</button>
+    </form>
+
+    <h2>My Tasks</h2>
+
+    {% for task in tasks %}
+        <p>
+            {{ task[1] }}
+            <a href="/delete/{{ task[0] }}">Delete</a>
+        </p>
+    {% else %}
+        <p>No tasks available.</p>
+    {% endfor %}
+
+</body>
+</html>
